@@ -3,6 +3,7 @@ package com.example.hwj.mydemo.utils.tools;
 import android.content.Context;
 import android.util.DisplayMetrics;
 
+
 /**
  * Created by hwj on 16-8-18.
  * desc  : 屏幕尺寸相关的工具类
