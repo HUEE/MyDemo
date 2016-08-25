@@ -18,17 +18,19 @@ import com.baidu.location.LocationClientOption.LocationMode;
 /**
  * 地理位置相关工具类（百度地图API）
  *
- * @author 曾繁添
+ * @author hwj
+ * @time 16-8-25 下午6:36
  */
-public class ToolLocation {
+
+public class Location {
     public static Context context;
     public static LocationClient mLocClient;
 
     private static class SingletonHolder {
-        private static ToolLocation instance = new ToolLocation();
+        private static Location instance = new Location();
     }
 
-    public static ToolLocation getInstance() {
+    public static Location getInstance() {
         return SingletonHolder.instance;
     }
 
@@ -39,7 +41,6 @@ public class ToolLocation {
             mLocClient = new LocationClient(context);
         }
     }
-
 
     /**
      * 判断GPS是否打开
@@ -125,7 +126,7 @@ public class ToolLocation {
      */
     public static void stopLocation() {
         if (mLocClient.isStarted()) {
-            ToolLocation.mLocClient.stop();
+            Location.mLocClient.stop();
         }
     }
 
@@ -141,7 +142,7 @@ public class ToolLocation {
         if (isGpsOPen()) {
             option.setLocationMode(LocationMode.Hight_Accuracy);
         } else {
-            if (ToolNetwork.getInstance().init(context)
+            if (Network.getInstance().init(context)
                     .isConnected()) {
                 option.setLocationMode(LocationMode.Battery_Saving);
             }

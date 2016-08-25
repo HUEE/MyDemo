@@ -26,7 +26,7 @@ import android.util.Log;
  * @author 曾繁添
  * @version 1.0
  */
-public class ToolNetwork {
+public class Network {
 
     public final static String NETWORK_CMNET = "CMNET";
     public final static String NETWORK_CMWAP = "CMWAP";
@@ -35,19 +35,19 @@ public class ToolNetwork {
     private static NetworkInfo networkInfo = null;
     private Context mContext = null;
 
-    private ToolNetwork() {
+    private Network() {
     }
 
     private static class SingletonHolder {
 
-        private static ToolNetwork instance = new ToolNetwork();
+        private static Network instance = new Network();
     }
 
-    public static ToolNetwork getInstance() {
+    public static Network getInstance() {
         return SingletonHolder.instance;
     }
 
-    public ToolNetwork init(Context context) {
+    public Network init(Context context) {
         this.mContext = context;
         return this;
     }
