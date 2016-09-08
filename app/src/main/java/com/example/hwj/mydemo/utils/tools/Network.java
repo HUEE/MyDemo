@@ -33,7 +33,7 @@ public class Network {
     public final static String NETWORK_WIFI = "WIFI";
     public final static String TAG = "ToolNetwork";
     private static NetworkInfo networkInfo = null;
-    private Context mContext = null;
+    private static Context mContext = null;
 
     private Network() {
     }
@@ -57,7 +57,7 @@ public class Network {
      *
      * @return 是/否
      */
-    public boolean isAvailable() {
+    public static boolean isAvailable() {
         ConnectivityManager manager = (ConnectivityManager) mContext
                 .getApplicationContext().getSystemService(
                         Context.CONNECTIVITY_SERVICE);

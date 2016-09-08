@@ -8,11 +8,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.hwj.mydemo.Base.BaseActivity;
 import com.example.hwj.mydemo.R;
+import com.example.hwj.mydemo.RecyclerView.CollapsingToolbarLayoutActivity;
 import com.example.hwj.mydemo.SelectList.TextSelectActivity;
+import com.example.hwj.mydemo.utils.tools.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -20,6 +21,8 @@ import butterknife.OnClick;
 public class MainActivity extends BaseActivity {
     @BindView(R.id.bt_selectlist)
     Button bt_selectlist;
+    @BindView(R.id.bt_recyclerView1)
+    Button bt_recyclerView1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,12 +62,16 @@ public class MainActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @OnClick(R.id.bt_selectlist)
+    @OnClick({R.id.bt_selectlist, R.id.bt_recyclerView1})
     void btClick(View v) {
         switch (v.getId()) {
             case R.id.bt_selectlist:
-                Toast.makeText(this, "Main_btSelect", Toast.LENGTH_SHORT).show();
+                ToastUtils.showToast(this, "Main_btSelect");
                 startActivity(new Intent(MainActivity.this, TextSelectActivity.class));
+                break;
+            case R.id.bt_recyclerView1:
+                ToastUtils.showToast(this, "RecyclerView1");
+                startActivity(new Intent(MainActivity.this, CollapsingToolbarLayoutActivity.class));
                 break;
         }
     }

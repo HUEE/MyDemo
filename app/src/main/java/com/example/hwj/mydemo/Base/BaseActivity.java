@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.example.hwj.mydemo.R;
+import com.example.hwj.mydemo.utils.tools.Network;
 
 import butterknife.ButterKnife;
 import qiu.niorgai.StatusBarCompat;
@@ -20,6 +21,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      **/
     private boolean isDebug = true;
     protected final String TAG = this.getClass().getSimpleName();
+    public Network network;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(setLayout());
         StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.colorPrimary));
         ButterKnife.bind(this);
+        network = Network.getInstance().init(getApplicationContext());
         init();
     }
 
