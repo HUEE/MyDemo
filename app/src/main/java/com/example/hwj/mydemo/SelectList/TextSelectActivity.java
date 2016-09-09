@@ -8,8 +8,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hwj.mydemo.Base.BaseActivity;
-import com.example.hwj.mydemo.CallBack.SelectListCallBack;
 import com.example.hwj.mydemo.R;
+import com.example.hwj.mydemo.SelectList.CallBack.SelectListCallBack;
 import com.example.hwj.mydemo.utils.tools.TopNaviUtil;
 
 import java.util.Map;

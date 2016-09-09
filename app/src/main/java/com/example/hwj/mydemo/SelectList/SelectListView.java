@@ -2,7 +2,6 @@ package com.example.hwj.mydemo.SelectList;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,8 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.hwj.mydemo.CallBack.SelectListCallBack;
 import com.example.hwj.mydemo.R;
+import com.example.hwj.mydemo.SelectList.CallBack.SelectListCallBack;
 import com.example.hwj.mydemo.utils.sortlistview.CharacterParser;
 import com.example.hwj.mydemo.utils.sortlistview.PinyinComparator;
 import com.example.hwj.mydemo.utils.sortlistview.SideBar;

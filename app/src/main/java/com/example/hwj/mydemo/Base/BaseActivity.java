@@ -1,5 +1,6 @@
 package com.example.hwj.mydemo.Base;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +23,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private boolean isDebug = true;
     protected final String TAG = this.getClass().getSimpleName();
     public Network network;
+    public Context mContext;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.colorPrimary));
         ButterKnife.bind(this);
         network = Network.getInstance().init(getApplicationContext());
+        mContext = getApplicationContext();
         init();
     }
 

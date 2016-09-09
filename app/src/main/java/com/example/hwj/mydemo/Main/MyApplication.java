@@ -29,10 +29,13 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
         if (instance == null) {
             instance = this;
         }
+        /*OkHttpClient httpClient = new OkHttpClient();
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+        httpClient = new OkHttpClient.Builder().addInterceptor(logging).build();*/
     }
 
     public static MyApplication getInstance() {
