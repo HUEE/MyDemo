@@ -15,11 +15,11 @@ import android.widget.TextView;
 
 import com.example.hwj.mydemo.Base.BaseActivity;
 import com.example.hwj.mydemo.R;
-import com.example.hwj.mydemo.utils.MyRecyclerView.interfaces.OnItemClickListener;
-import com.example.hwj.mydemo.utils.MyRecyclerView.recyclerview.LRecyclerView;
-import com.example.hwj.mydemo.utils.MyRecyclerView.recyclerview.LRecyclerViewAdapter;
-import com.example.hwj.mydemo.utils.MyRecyclerView.util.RecyclerViewStateUtils;
-import com.example.hwj.mydemo.utils.MyRecyclerView.view.LoadingFooter;
+import com.example.hwj.mydemo.RecyclerView.MyRecyclerView.interfaces.OnItemClickListener;
+import com.example.hwj.mydemo.RecyclerView.MyRecyclerView.recyclerview.LRecyclerView;
+import com.example.hwj.mydemo.RecyclerView.MyRecyclerView.recyclerview.LRecyclerViewAdapter;
+import com.example.hwj.mydemo.RecyclerView.MyRecyclerView.util.RecyclerViewStateUtils;
+import com.example.hwj.mydemo.RecyclerView.MyRecyclerView.view.LoadingFooter;
 import com.example.hwj.mydemo.utils.tools.ToastUtils;
 
 import java.lang.ref.WeakReference;

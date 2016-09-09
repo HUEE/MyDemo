@@ -55,7 +55,7 @@
             android:layout_toLeftOf="@id/listview_header_text"
             android:src="@drawable/ic_pulltorefresh_arrow" />
 
-        <com.example.hwj.mydemo.utils.MyRecyclerView.view.SimpleViewSwitcher
+        <com.example.hwj.mydemo.RecyclerView.MyRecyclerView.view.SimpleViewSwitcher
             android:id="@+id/listview_header_progressbar"
             android:layout_width="30dip"
             android:layout_height="30dip"

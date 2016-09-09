@@ -11,11 +11,11 @@ import android.widget.Toast;
 
 import com.example.hwj.mydemo.R;
 import com.example.hwj.mydemo.SelectList.CallBack.SelectListCallBack;
-import com.example.hwj.mydemo.utils.sortlistview.CharacterParser;
-import com.example.hwj.mydemo.utils.sortlistview.PinyinComparator;
-import com.example.hwj.mydemo.utils.sortlistview.SideBar;
-import com.example.hwj.mydemo.utils.sortlistview.SortAdapter;
-import com.example.hwj.mydemo.utils.sortlistview.SortModel;
+import com.example.hwj.mydemo.SelectList.sortlistview.CharacterParser;
+import com.example.hwj.mydemo.SelectList.sortlistview.PinyinComparator;
+import com.example.hwj.mydemo.SelectList.sortlistview.SideBar;
+import com.example.hwj.mydemo.SelectList.sortlistview.SortAdapter;
+import com.example.hwj.mydemo.SelectList.sortlistview.SortModel;
 import com.example.hwj.mydemo.utils.tools.DeviceTools;
 
 import java.util.ArrayList;
@@ -26,6 +26,8 @@ import java.util.Map;
 
 
 /**
+ * 自定义SelectListView
+ * 多级城市，类别选择
  * Created by hwj on 16-8-9.
  */
 
