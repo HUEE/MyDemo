@@ -7,13 +7,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.hwj.mydemo.Base.BaseActivity;
-import com.example.hwj.mydemo.NetWork.Adapter.GvListAdapter;
+import com.example.hwj.mydemo.NetWork.Adapter.ListAdapter;
+import com.example.hwj.mydemo.NetWork.http.Bean.ShenFen;
+import com.example.hwj.mydemo.NetWork.http.Bean.Subject;
 import com.example.hwj.mydemo.NetWork.http.HttpMethods;
-import com.example.hwj.mydemo.NetWork.http.Subject;
 import com.example.hwj.mydemo.NetWork.http.progress.ProgressSubscriber;
 import com.example.hwj.mydemo.NetWork.http.progress.SubscriberOnNextListener;
 import com.example.hwj.mydemo.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -31,7 +33,7 @@ public class RetrofitActivity extends BaseActivity {
     SwipeRefreshLayout refreshLayout;
     @BindView(R.id.gridRv)
     RecyclerView gridRv;
-    GvListAdapter adapter;
+    ListAdapter adapter;
     protected Subscription subscription;
     private SubscriberOnNextListener getTopMovieOnNext;
 
@@ -47,20 +49,16 @@ public class RetrofitActivity extends BaseActivity {
 
     @Override
     protected void init() {
-        adapter = new GvListAdapter();
+        adapter = new ListAdapter();
         gridRv.setLayoutManager(new LinearLayoutManager(mContext));
         gridRv.setAdapter(adapter);
         // refreshLayout.setColorSchemeColors(Color.BLUE, Color.GREEN, Color.RED, Color.YELLOW);
         refreshLayout.setEnabled(false);
         unsubscribe();
         adapter.setImages(null);
-        getTopMovieOnNext = new SubscriberOnNextListener<List<Subject>>() {
-            @Override
-            public void onNext(List<Subject> subjects) {
-                adapter.setImages(subjects);
-            }
-        };
-        getMovie();
+
+        // getMovie();
+        getShen();
     }
 
     protected void unsubscribe() {
@@ -70,7 +68,25 @@ public class RetrofitActivity extends BaseActivity {
     }
 
     private void getMovie() {
+        getTopMovieOnNext = new SubscriberOnNextListener<List<Subject>>() {
+            @Override
+            public void onNext(List<Subject> subjects) {
+                adapter.setImages(subjects);
+            }
+        };
         HttpMethods.getInstance().getTopMovie(new ProgressSubscriber(getTopMovieOnNext, RetrofitActivity.this), 0, 30);
+    }
+
+    private void getShen() {
+        getTopMovieOnNext = new SubscriberOnNextListener<ShenFen>() {
+            @Override
+            public void onNext(ShenFen subjects) {
+                List list = new ArrayList();
+                list.add(subjects);
+                adapter.setImages(list);
+            }
+        };
+        HttpMethods.getInstance().getShenFen(new ProgressSubscriber<ShenFen>(getTopMovieOnNext, RetrofitActivity.this), "d7a2ccff4fd864d842f39320337444c9", "422201199205101816");
     }
 
 

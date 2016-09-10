@@ -20,7 +20,8 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 
 /**
- * Created by Yan Zhenjie on 2016/7/27.
+ * 应用主入口！
+ * Created by hwj on 2016/7/27.
  */
 public class MyApplication extends Application {
 
@@ -32,10 +33,6 @@ public class MyApplication extends Application {
         if (instance == null) {
             instance = this;
         }
-        /*OkHttpClient httpClient = new OkHttpClient();
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-        httpClient = new OkHttpClient.Builder().addInterceptor(logging).build();*/
     }
 
     public static MyApplication getInstance() {

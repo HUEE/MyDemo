@@ -1,5 +1,10 @@
 package com.example.hwj.mydemo.NetWork.http;
 
+import com.example.hwj.mydemo.NetWork.http.Bean.HttpResult;
+import com.example.hwj.mydemo.NetWork.http.Bean.MyResult;
+import com.example.hwj.mydemo.NetWork.http.Bean.ShenFen;
+import com.example.hwj.mydemo.NetWork.http.Bean.Subject;
+
 import java.util.List;
 
 import okhttp3.OkHttpClient;
@@ -14,11 +19,14 @@ import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by liukun on 16/3/9.
+ * 网络请求封装及数据处理
+ * Created by hwj on 16/9/9.
  */
 public class HttpMethods {
 
     public static final String BASE_URL = "https://api.douban.com/v2/movie/";
+
+    public static final String BASE_URL1 = "http://apis.baidu.com/apistore/";
 
     private static final int DEFAULT_TIMEOUT = 5;
 
@@ -37,9 +45,8 @@ public class HttpMethods {
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .baseUrl(BASE_URL)
+                .baseUrl(BASE_URL1)
                 .build();
-
         httpService = retrofit.create(HttpService.class);
     }
 
@@ -61,16 +68,14 @@ public class HttpMethods {
      * @param count      获取长度
      */
     public void getTopMovie(Subscriber<List<Subject>> subscriber, int start, int count) {
-
-//        httpService.getTopMovie(start, count)
-//                .map(new HttpResultFunc<List<Subject>>())
-//                .subscribeOn(Schedulers.io())
-//                .unsubscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(subscriber);
-
         Observable observable = httpService.getTopMovie(start, count)
                 .map(new HttpResultFunc<List<Subject>>());
+        toSubscribe(observable, subscriber);
+    }
+
+    public void getShenFen(Subscriber<ShenFen> subscriber, String apikey, String id) {
+        Observable<ShenFen> observable = httpService.getShenFen(apikey, id)
+                .map(new MyResultFunc<ShenFen>());
         toSubscribe(observable, subscriber);
     }
 
@@ -94,6 +99,16 @@ public class HttpMethods {
                 throw new ApiException(100);
             }
             return httpResult.getSubjects();
+        }
+    }
+
+    private class MyResultFunc<T> implements Func1<MyResult<T>, T> {
+        @Override
+        public T call(MyResult<T> httpResult) {
+            if (httpResult.getErrNum() == 1) {
+                throw new ApiException(100);
+            }
+            return httpResult.getRetData();
         }
     }
 

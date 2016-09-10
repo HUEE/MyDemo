@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.hwj.mydemo.NetWork.http.Subject;
+import com.example.hwj.mydemo.NetWork.http.Bean.ShenFen;
 import com.example.hwj.mydemo.R;
 
 import java.util.List;
@@ -16,8 +16,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class GvListAdapter extends RecyclerView.Adapter {
-    List<Subject> data;
+public class ListAdapter<T> extends RecyclerView.Adapter {
+    List<T> data;
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -28,10 +28,10 @@ public class GvListAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         DebounceViewHolder debounceViewHolder = (DebounceViewHolder) holder;
-        Subject item_data = data.get(position);
+        ShenFen item_data = (ShenFen) data.get(position);
         //Glide.with(holder.itemView.getContext()).load(image.image_url).into(debounceViewHolder.imageIv);
-        debounceViewHolder.descriptionTv.setText(item_data.getTitle());
-        debounceViewHolder.description.setText(item_data.getAlt());
+        debounceViewHolder.descriptionTv.setText(item_data.getBirthday());
+        debounceViewHolder.description.setText(item_data.getAddress());
     }
 
     @Override
@@ -39,7 +39,7 @@ public class GvListAdapter extends RecyclerView.Adapter {
         return data == null ? 0 : data.size();
     }
 
-    public void setImages(List<Subject> data) {
+    public void setImages(List<T> data) {
         this.data = data;
         notifyDataSetChanged();
     }
