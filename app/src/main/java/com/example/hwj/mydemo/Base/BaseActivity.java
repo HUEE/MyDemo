@@ -11,6 +11,7 @@ import com.example.hwj.mydemo.utils.tools.Network;
 
 import butterknife.ButterKnife;
 import qiu.niorgai.StatusBarCompat;
+import rx.subscriptions.CompositeSubscription;
 
 /**
  * Created by hwj on 16-8-15.
@@ -24,7 +25,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected final String TAG = this.getClass().getSimpleName();
     public Network network;
     public Context mContext;
-
+    private CompositeSubscription mCompositeSubscription;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +47,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             Log.d(TAG, log);
         }
     }
+
 
     @Override
     protected void onStop() {

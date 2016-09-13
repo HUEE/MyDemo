@@ -66,6 +66,9 @@ public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCanc
      */
     @Override
     public void onError(Throwable e) {
+        if (mSubscriberOnNextListener != null) {
+            mSubscriberOnNextListener.onError();
+        }
         if (e instanceof SocketTimeoutException) {
             Toast.makeText(context, "网络中断，请检查您的网络状态", Toast.LENGTH_SHORT).show();
         } else if (e instanceof ConnectException) {
@@ -88,6 +91,7 @@ public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCanc
         if (mSubscriberOnNextListener != null) {
             mSubscriberOnNextListener.onNext(t);
         }
+        // context.getD
     }
 
     /**

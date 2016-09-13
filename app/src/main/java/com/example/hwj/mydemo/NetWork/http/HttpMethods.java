@@ -1,8 +1,6 @@
 package com.example.hwj.mydemo.NetWork.http;
 
 import com.example.hwj.mydemo.NetWork.http.Bean.HttpResult;
-import com.example.hwj.mydemo.NetWork.http.Bean.MyResult;
-import com.example.hwj.mydemo.NetWork.http.Bean.ShenFen;
 import com.example.hwj.mydemo.NetWork.http.Bean.Subject;
 
 import java.util.List;
@@ -13,10 +11,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
-import rx.schedulers.Schedulers;
 
 /**
  * 网络请求封装及数据处理
@@ -45,7 +40,7 @@ public class HttpMethods {
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .baseUrl(BASE_URL1)
+                .baseUrl(BASE_URL)
                 .build();
         httpService = retrofit.create(HttpService.class);
     }
@@ -62,28 +57,12 @@ public class HttpMethods {
 
     /**
      * 用于获取豆瓣电影Top250的数据
-     *
-     * @param subscriber 由调用者传过来的观察者对象
      * @param start      起始位置
      * @param count      获取长度
      */
-    public void getTopMovie(Subscriber<List<Subject>> subscriber, int start, int count) {
-        Observable observable = httpService.getTopMovie(start, count)
+    public Observable getTopMovie(int start, int count) {
+        return httpService.getTopMovie(start, count)
                 .map(new HttpResultFunc<List<Subject>>());
-        toSubscribe(observable, subscriber);
-    }
-
-    public void getShenFen(Subscriber<ShenFen> subscriber, String apikey, String id) {
-        Observable<ShenFen> observable = httpService.getShenFen(apikey, id)
-                .map(new MyResultFunc<ShenFen>());
-        toSubscribe(observable, subscriber);
-    }
-
-    private <T> void toSubscribe(Observable<T> o, Subscriber<T> s) {
-        o.subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(s);
     }
 
     /**
@@ -99,16 +78,6 @@ public class HttpMethods {
                 throw new ApiException(100);
             }
             return httpResult.getSubjects();
-        }
-    }
-
-    private class MyResultFunc<T> implements Func1<MyResult<T>, T> {
-        @Override
-        public T call(MyResult<T> httpResult) {
-            if (httpResult.getErrNum() == 1) {
-                throw new ApiException(100);
-            }
-            return httpResult.getRetData();
         }
     }
 

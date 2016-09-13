@@ -15,10 +15,10 @@
         android:padding="4dp"
         android:orientation="vertical">
 
-        <!--        <ImageView
+        <ImageView
                     android:id="@+id/imageIv"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp" />-->
+            android:layout_height="160dp" />
         <TextView
             android:id="@+id/description"
             android:layout_width="match_parent"

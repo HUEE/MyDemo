@@ -5,4 +5,6 @@ package com.example.hwj.mydemo.NetWork.http.progress;
  */
 public interface SubscriberOnNextListener<T> {
     void onNext(T t);
+
+    void onError();
 }

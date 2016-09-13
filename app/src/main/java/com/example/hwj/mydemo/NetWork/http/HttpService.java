@@ -1,14 +1,11 @@
 package com.example.hwj.mydemo.NetWork.http;
 
 import com.example.hwj.mydemo.NetWork.http.Bean.HttpResult;
-import com.example.hwj.mydemo.NetWork.http.Bean.MyResult;
-import com.example.hwj.mydemo.NetWork.http.Bean.ShenFen;
 import com.example.hwj.mydemo.NetWork.http.Bean.Subject;
 
 import java.util.List;
 
 import retrofit2.http.GET;
-import retrofit2.http.Header;
 import retrofit2.http.Query;
 import rx.Observable;
 
@@ -22,9 +19,6 @@ public interface HttpService {
     @GET("top250")
     Observable<HttpResult<List<Subject>>> getTopMovie(@Query("start") int start, @Query("count") int count);
 
-    //获取身份证信息接口
-    @GET("idservice/id")
-    Observable<MyResult<ShenFen>> getShenFen(@Header("apikey") String apikey, @Query("id") String id);
 
 
 }
