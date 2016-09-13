@@ -28,7 +28,7 @@
             android:name="com.example.hwj.mydemo.SelectList.TextSelectActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".RecyclerView.CollapsingToolbarLayoutActivity"></activity>
-        <activity android:name=".NetWork.RetrofitActivity"></activity>
+        <activity android:name=".NetWork.MovieActivity"></activity>
     </application>
 
 

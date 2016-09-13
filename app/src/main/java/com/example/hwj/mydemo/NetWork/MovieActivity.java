@@ -23,7 +23,7 @@ import static com.example.hwj.mydemo.R.id.swipeRefreshLayout;
  * Created by hwj on 16-9-8.
  */
 
-public class RetrofitActivity extends MvpActivity<MoviePresenter> implements MainView {
+public class MovieActivity extends MvpActivity<MoviePresenter> implements MainView {
     @BindView(swipeRefreshLayout)
     SwipeRefreshLayout refreshLayout;
     @BindView(R.id.gridRv)

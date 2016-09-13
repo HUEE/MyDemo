@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.hwj.mydemo.Base.BaseActivity;
-import com.example.hwj.mydemo.NetWork.RetrofitActivity;
+import com.example.hwj.mydemo.NetWork.MovieActivity;
 import com.example.hwj.mydemo.R;
 import com.example.hwj.mydemo.RecyclerView.CollapsingToolbarLayoutActivity;
 import com.example.hwj.mydemo.SelectList.TextSelectActivity;
@@ -78,7 +78,7 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.bt_retrofit:
                 ToastUtils.showToast(mContext, "Retrofit");
-                startActivity(new Intent(mContext, RetrofitActivity.class));
+                startActivity(new Intent(mContext, MovieActivity.class));
                 break;
         }
     }
