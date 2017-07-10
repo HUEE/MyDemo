@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.hwj.mydemo.Base.BaseActivity;
 import com.example.hwj.mydemo.NetWork.MovieActivity;
@@ -27,6 +28,8 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.bt_retrofit)
     Button bt_retrofit;
 
+    TextView textView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +42,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void init() {
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
@@ -69,15 +73,16 @@ public class MainActivity extends BaseActivity {
     void btClick(View v) {
         switch (v.getId()) {
             case R.id.bt_selectlist:
-                ToastUtils.showToast(this, "Main_btSelect");
+//                textView.setText("vvdff");
+                ToastUtils.showToast(this, "Main_btSelect---->hahahaha");
                 startActivity(new Intent(mContext, TextSelectActivity.class));
                 break;
             case R.id.bt_recyclerView1:
-                ToastUtils.showToast(this, "RecyclerView1");
+                ToastUtils.showToast(this, "RecyclerView1-->hahahahah");
                 startActivity(new Intent(mContext, CollapsingToolbarLayoutActivity.class));
                 break;
             case R.id.bt_retrofit:
-                ToastUtils.showToast(mContext, "Retrofit");
+                ToastUtils.showToast(mContext, "Retrofit--->hahahaha");
                 startActivity(new Intent(mContext, MovieActivity.class));
                 break;
         }

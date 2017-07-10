@@ -18,6 +18,7 @@ import rx.Observable;
  */
 public class MoviePresenter extends BasePresenter<MainView> {
     private SubscriberOnNextListener getTopMovieOnNext;
+    private SubscriberOnNextListener textOnNext;
 
     public MoviePresenter(MainView view) {
         attachView(view);
@@ -33,12 +34,30 @@ public class MoviePresenter extends BasePresenter<MainView> {
             }
 
         };
+
+        textOnNext = new SubscriberOnNextListener() {
+            @Override
+            public void onNext(Object o) {
+                mvpView.getDataSuccess(o);
+            }
+
+            @Override
+            public void onError() {
+                mvpView.getDataFail();
+            }
+        };
+
+
     }
 
 
     public void loadData(Context context, int start, int count) {
         Observable observable = apiStores.getTopMovie(start, count);
         addSubscription(observable, new ProgressSubscriber(getTopMovieOnNext, context));
+    }
+
+    public void text(Context context){
+        addSubscription(apiStores.text(),new ProgressSubscriber(getTopMovieOnNext, context));
     }
 
 }

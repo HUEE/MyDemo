@@ -15,33 +15,19 @@
  */
 package com.example.hwj.mydemo.Main;
 
-import android.app.Application;
-import android.content.Context;
-import android.support.multidex.MultiDex;
+import com.tencent.tinker.loader.app.TinkerApplication;
+import com.tencent.tinker.loader.shareutil.ShareConstants;
 
 /**
  * 应用主入口！
  * Created by hwj on 2016/7/27.
  */
-public class MyApplication extends Application {
+public class MyApplication extends TinkerApplication {
 
-    private static MyApplication instance;
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        if (instance == null) {
-            instance = this;
-        }
+    public MyApplication() {
+        super(ShareConstants.TINKER_ENABLE_ALL, "com.example.hwj.mydemo.ApplicationLike",
+                "com.tencent.tinker.loader.TinkerLoader", false);
     }
 
-    public static MyApplication getInstance() {
-        return instance;
-    }
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(this);
-    }
 }

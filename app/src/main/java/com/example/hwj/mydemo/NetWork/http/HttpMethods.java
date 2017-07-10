@@ -3,7 +3,9 @@ package com.example.hwj.mydemo.NetWork.http;
 import com.example.hwj.mydemo.NetWork.http.Bean.HttpResult;
 import com.example.hwj.mydemo.NetWork.http.Bean.Subject;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -63,6 +65,17 @@ public class HttpMethods {
     public Observable getTopMovie(int start, int count) {
         return httpService.getTopMovie(start, count)
                 .map(new HttpResultFunc<List<Subject>>());
+    }
+
+    public Observable text(){
+        Map map = new HashMap();
+        map.put("menu","西红柿鸡蛋");
+        map.put("key","b4f9954e4a3efed73796b73faf47ffa3");
+        map.put("dtype","json");
+        map.put("pn","0");
+        map.put("rn","20");
+        map.put("albums","1");
+        return httpService.execPost("http://apis.juhe.cn/cook/query.php",map);
     }
 
     /**

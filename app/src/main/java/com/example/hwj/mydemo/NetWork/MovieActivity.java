@@ -55,6 +55,7 @@ public class MovieActivity extends MvpActivity<MoviePresenter> implements MainVi
         refreshLayout.setEnabled(false);
         adapter.setImages(null);
         mvpPresenter.loadData(this, 0, 30);
+        mvpPresenter.text(this);
     }
 
     @Override
