@@ -76,6 +76,11 @@ public class ApplicationLike extends DefaultApplicationLike {
             public void onApplyFailure(String msg) {
                 Log.d(TAG, "补丁应用成功-->" + msg);
             }
+
+            @Override
+            public void onPatchRollback () {
+
+            }
         };
 
         // 设置开发设备，默认为false，上传补丁如果下发范围指定为“开发设备”，需要调用此接口来标识开发设备

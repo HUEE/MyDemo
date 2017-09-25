@@ -8,10 +8,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.hwj.mydemo.Base.BaseActivity;
 import com.example.hwj.mydemo.NetWork.MovieActivity;
+import com.example.hwj.mydemo.PopWindow.PopWindow;
 import com.example.hwj.mydemo.R;
 import com.example.hwj.mydemo.RecyclerView.CollapsingToolbarLayoutActivity;
 import com.example.hwj.mydemo.SelectList.TextSelectActivity;
@@ -27,35 +28,35 @@ public class MainActivity extends BaseActivity {
     Button bt_recyclerView1;
     @BindView(R.id.bt_retrofit)
     Button bt_retrofit;
-
-    TextView textView;
+    @BindView(R.id.bt_pop)
+    Button bt_pop;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate (@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    protected int setLayout() {
+    protected int setLayout () {
         return R.layout.activity_main;
     }
 
     @Override
-    public void init() {
+    public void init () {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu (Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected (MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
@@ -69,8 +70,8 @@ public class MainActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @OnClick({R.id.bt_selectlist, R.id.bt_recyclerView1, R.id.bt_retrofit})
-    void btClick(View v) {
+    @OnClick({R.id.bt_selectlist, R.id.bt_recyclerView1, R.id.bt_retrofit, R.id.bt_pop})
+    void btClick (View v) {
         switch (v.getId()) {
             case R.id.bt_selectlist:
 //                textView.setText("vvdff");
@@ -85,6 +86,21 @@ public class MainActivity extends BaseActivity {
                 ToastUtils.showToast(mContext, "Retrofit--->hahahaha");
                 startActivity(new Intent(mContext, MovieActivity.class));
                 break;
+            case R.id.bt_pop:
+                final PopWindow.Builder builder = new PopWindow.Builder(this)
+                        .setContentView(R.layout.pop)
+                        .setBackgroundDimEnable(true)
+                        .setFocusAndOutsideEnable(false)
+                        .showAsDropDown(bt_pop);
+                builder.getCurView().findViewById(R.id.pop_bt).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick (View view) {
+                        Toast.makeText(mContext, "sucess", Toast.LENGTH_LONG).show();
+                        builder.dismiss();
+                    }
+                });
+                break;
+
         }
     }
 }

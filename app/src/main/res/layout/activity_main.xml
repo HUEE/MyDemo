@@ -26,6 +26,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center">
+
         <Button
             android:id="@+id/bt_selectlist"
             android:layout_width="match_parent"
@@ -38,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/RecyclerView1"
-            android:textSize="20dp"/>
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/bt_retrofit"
@@ -46,8 +47,15 @@
             android:layout_height="wrap_content"
             android:text="@string/RecyclerView1"
             android:textSize="20dp" />
-    </LinearLayout>
 
+        <Button
+            android:id="@+id/bt_pop"
+            android:text="Pop弹窗"
+            android:textSize="22sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        ＜Butto
+    </LinearLayout>
 
 
 </LinearLayout>

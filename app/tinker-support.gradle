@@ -10,7 +10,7 @@ def baseApkDir = "app-0425-16-19-36"
 /**
  * 根据版本号获取TinkerId,基准板base, 补丁patch
  */
-def myTinkerId = "1.0.3_patch1";
+def myTinkerId = "1.0.3_patch1"
 
 /**
  * 对于插件各参数的详细解析请参考
