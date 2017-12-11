@@ -1,4 +1,4 @@
-package com.example.hwj.mydemo.NetWork.http.Bean;
+package com.example.hwj.mydemo.network.http.Bean;
 
 /**
  * Created by hwj on 16-9-10.

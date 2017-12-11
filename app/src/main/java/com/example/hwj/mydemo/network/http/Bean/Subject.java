@@ -1,4 +1,4 @@
-package com.example.hwj.mydemo.NetWork.http.Bean;
+package com.example.hwj.mydemo.network.http.Bean;
 
 import java.util.List;
 

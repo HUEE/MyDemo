@@ -1,6 +1,6 @@
 // (c)2016 Flipboard Inc, All Rights Reserved.
 
-package com.example.hwj.mydemo.NetWork.Adapter;
+package com.example.hwj.mydemo.network.Adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.hwj.mydemo.NetWork.http.Bean.Subject;
+import com.example.hwj.mydemo.network.http.Bean.Subject;
 import com.example.hwj.mydemo.R;
 
 import java.util.List;

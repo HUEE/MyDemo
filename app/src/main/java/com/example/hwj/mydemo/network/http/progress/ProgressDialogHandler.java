@@ -1,4 +1,4 @@
-package com.example.hwj.mydemo.NetWork.http.progress;
+package com.example.hwj.mydemo.network.http.progress;
 
 import android.app.ProgressDialog;
 import android.content.Context;

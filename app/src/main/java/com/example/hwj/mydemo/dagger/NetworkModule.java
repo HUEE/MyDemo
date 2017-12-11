@@ -1,6 +1,6 @@
 package com.example.hwj.mydemo.dagger;
 
-import com.example.hwj.mydemo.NetWork.ApiService;
+import com.example.hwj.mydemo.network.ApiService;
 import com.example.hwj.mydemo.utils.RequestInterceptor;
 
 import java.util.concurrent.TimeUnit;

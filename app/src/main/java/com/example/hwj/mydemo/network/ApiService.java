@@ -1,4 +1,4 @@
-package com.example.hwj.mydemo.NetWork;
+package com.example.hwj.mydemo.network;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;

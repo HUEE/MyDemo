@@ -1,6 +1,6 @@
 package com.example.hwj.mydemo.dagger;
 
-import com.example.hwj.mydemo.Main.MainActivity;
+import com.example.hwj.mydemo.main.MainActivity;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

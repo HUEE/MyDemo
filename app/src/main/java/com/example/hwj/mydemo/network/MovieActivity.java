@@ -1,4 +1,4 @@
-package com.example.hwj.mydemo.NetWork;
+package com.example.hwj.mydemo.network;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.example.hwj.mydemo.base.MainView;
 import com.example.hwj.mydemo.base.MvpActivity;
-import com.example.hwj.mydemo.NetWork.Adapter.ListAdapter;
+import com.example.hwj.mydemo.network.Adapter.ListAdapter;
 import com.example.hwj.mydemo.R;
 
 import java.util.List;

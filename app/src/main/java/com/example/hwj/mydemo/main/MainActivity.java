@@ -1,4 +1,4 @@
-package com.example.hwj.mydemo.Main;
+package com.example.hwj.mydemo.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.hwj.mydemo.NetWork.ApiService;
-import com.example.hwj.mydemo.NetWork.MovieActivity;
+import com.example.hwj.mydemo.network.ApiService;
+import com.example.hwj.mydemo.network.MovieActivity;
 import com.example.hwj.mydemo.R;
 import com.example.hwj.mydemo.base.DaggerBaseActivity;
 import com.example.hwj.mydemo.popwindow.PopWindow;

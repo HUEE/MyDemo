@@ -1,7 +1,7 @@
-package com.example.hwj.mydemo.NetWork.http;
+package com.example.hwj.mydemo.network.http;
 
-import com.example.hwj.mydemo.NetWork.http.Bean.HttpResult;
-import com.example.hwj.mydemo.NetWork.http.Bean.Subject;
+import com.example.hwj.mydemo.network.http.Bean.HttpResult;
+import com.example.hwj.mydemo.network.http.Bean.Subject;
 
 import java.util.HashMap;
 import java.util.List;

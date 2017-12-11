@@ -1,12 +1,12 @@
-package com.example.hwj.mydemo.NetWork;
+package com.example.hwj.mydemo.network;
 
 import android.content.Context;
 
 import com.example.hwj.mydemo.base.BasePresenter;
 import com.example.hwj.mydemo.base.MainView;
-import com.example.hwj.mydemo.NetWork.http.Bean.Subject;
-import com.example.hwj.mydemo.NetWork.http.progress.ProgressSubscriber;
-import com.example.hwj.mydemo.NetWork.http.progress.SubscriberOnNextListener;
+import com.example.hwj.mydemo.network.http.Bean.Subject;
+import com.example.hwj.mydemo.network.http.progress.ProgressSubscriber;
+import com.example.hwj.mydemo.network.http.progress.SubscriberOnNextListener;
 
 import java.util.List;
 

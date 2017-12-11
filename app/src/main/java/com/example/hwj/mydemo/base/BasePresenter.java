@@ -1,6 +1,6 @@
 package com.example.hwj.mydemo.base;
 
-import com.example.hwj.mydemo.NetWork.http.HttpMethods;
+import com.example.hwj.mydemo.network.http.HttpMethods;
 
 import rx.Observable;
 import rx.Subscriber;
