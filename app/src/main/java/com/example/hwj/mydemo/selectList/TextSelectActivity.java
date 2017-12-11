@@ -1,4 +1,4 @@
-package com.example.hwj.mydemo.SelectList;
+package com.example.hwj.mydemo.selectList;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,10 +7,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.hwj.mydemo.Base.BaseActivity;
+import com.example.hwj.mydemo.base.BaseActivity;
 import com.example.hwj.mydemo.R;
-import com.example.hwj.mydemo.SelectList.CallBack.SelectListCallBack;
-import com.example.hwj.mydemo.utils.tools.TopNaviUtil;
+import com.example.hwj.mydemo.selectList.CallBack.SelectListCallBack;
+import com.example.hwj.mydemo.utils.TopNaviUtil;
 
 import java.util.Map;
 

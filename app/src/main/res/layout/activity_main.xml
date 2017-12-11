@@ -53,8 +53,12 @@
             android:text="Pop弹窗"
             android:textSize="22sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        ＜Butto
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/my_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自定义View"/>
     </LinearLayout>
 
 

@@ -1,4 +1,4 @@
-package com.example.hwj.mydemo.Base;
+package com.example.hwj.mydemo.base;
 
 public interface Presenter<V> {
 

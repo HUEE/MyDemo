@@ -1,4 +1,4 @@
-package com.example.hwj.mydemo.PopWindow;
+package com.example.hwj.mydemo.popwindow;
 
 import android.app.Activity;
 import android.content.Context;

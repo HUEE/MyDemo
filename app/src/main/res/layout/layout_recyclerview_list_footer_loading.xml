@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="horizontal">
 
-    <com.example.hwj.mydemo.RecyclerView.MyRecyclerView.progressindicator.AVLoadingIndicatorView
+    <com.example.hwj.mydemo.recyclerView.MyRecyclerView.progressindicator.AVLoadingIndicatorView
         android:id="@+id/loading_progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

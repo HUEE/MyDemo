@@ -1,4 +1,4 @@
-package com.example.hwj.mydemo.utils.dagger;
+package com.example.hwj.mydemo.dagger;
 
 import com.example.hwj.mydemo.NetWork.ApiService;
 import com.example.hwj.mydemo.utils.RequestInterceptor;

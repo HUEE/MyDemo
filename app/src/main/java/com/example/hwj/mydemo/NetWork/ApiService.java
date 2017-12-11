@@ -1,29 +1,25 @@
-package com.esoxjem.movieguide.network;
-
-import com.esoxjem.movieguide.MoviesWraper;
-import com.esoxjem.movieguide.ReviewsWrapper;
-import com.esoxjem.movieguide.VideoWrapper;
+package com.example.hwj.mydemo.NetWork;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;
-import io.reactivex.Observable;
+import rx.Observable;
 
 /**
  * Created by ivan on 8/20/2017.
  */
 
-public interface TmdbWebService {
+public interface ApiService {
 
     @GET("3/discover/movie?language=en&sort_by=popularity.desc")
-    Observable<MoviesWraper> popularMovies();
+    Observable<Object> popularMovies ();
 
     @GET("3/discover/movie?vote_count.gte=500&language=en&sort_by=vote_average.desc")
-    Observable<MoviesWraper> highestRatedMovies();
+    Observable<Object> highestRatedMovies ();
 
     @GET("3/movie/{movieId}/videos")
-    Observable<VideoWrapper> trailers(@Path("movieId") String movieId);
+    Observable<Object> trailers (@Path("movieId") String movieId);
 
     @GET("3/movie/{movieId}/reviews")
-    Observable<ReviewsWrapper> reviews(@Path("movieId") String movieId);
+    Observable<Object> reviews (@Path("movieId") String movieId);
 
 }

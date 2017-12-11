@@ -42,7 +42,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <com.example.hwj.mydemo.RecyclerView.MyRecyclerView.recyclerview.LRecyclerView
+    <com.example.hwj.mydemo.recyclerView.MyRecyclerView.recyclerview.LRecyclerView
         android:id="@+id/list"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"

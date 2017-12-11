@@ -7,8 +7,8 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.example.hwj.mydemo.Base.MainView;
-import com.example.hwj.mydemo.Base.MvpActivity;
+import com.example.hwj.mydemo.base.MainView;
+import com.example.hwj.mydemo.base.MvpActivity;
 import com.example.hwj.mydemo.NetWork.Adapter.ListAdapter;
 import com.example.hwj.mydemo.R;
 

@@ -1,6 +1,4 @@
-package com.zl.dagger2example;
-
-import com.zl.dagger2example.di.components.DaggerAppComponent;
+package com.example.hwj.mydemo;
 
 import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerApplication;
@@ -11,7 +9,7 @@ import dagger.android.support.DaggerApplication;
 public class MyApplication extends DaggerApplication {
 
     @Override
-    protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
+    protected AndroidInjector<? extends DaggerApplication> applicationInjector () {
         return DaggerAppComponent.builder().create(this);
     }
 }

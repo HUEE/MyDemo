@@ -3,25 +3,25 @@ package com.example.hwj.mydemo.Main;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.hwj.mydemo.Base.BaseActivity;
+import com.example.hwj.mydemo.NetWork.ApiService;
 import com.example.hwj.mydemo.NetWork.MovieActivity;
-import com.example.hwj.mydemo.PopWindow.PopWindow;
 import com.example.hwj.mydemo.R;
-import com.example.hwj.mydemo.RecyclerView.CollapsingToolbarLayoutActivity;
-import com.example.hwj.mydemo.SelectList.TextSelectActivity;
-import com.example.hwj.mydemo.utils.tools.ToastUtils;
+import com.example.hwj.mydemo.base.DaggerBaseActivity;
+import com.example.hwj.mydemo.popwindow.PopWindow;
+import com.example.hwj.mydemo.recyclerView.CollapsingToolbarLayoutActivity;
+import com.example.hwj.mydemo.selectList.TextSelectActivity;
+import com.example.hwj.mydemo.utils.ToastUtils;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends DaggerBaseActivity {
     @BindView(R.id.bt_selectlist)
     Button bt_selectlist;
     @BindView(R.id.bt_recyclerView1)
@@ -30,6 +30,9 @@ public class MainActivity extends BaseActivity {
     Button bt_retrofit;
     @BindView(R.id.bt_pop)
     Button bt_pop;
+
+    @Inject
+    ApiService apiService;
 
     @Override
     protected void onCreate (@Nullable Bundle savedInstanceState) {
@@ -43,38 +46,14 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void init () {
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu (Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected (MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @OnClick({R.id.bt_selectlist, R.id.bt_recyclerView1, R.id.bt_retrofit, R.id.bt_pop})
+    @OnClick({R.id.bt_selectlist, R.id.bt_recyclerView1, R.id.bt_retrofit,
+            R.id.bt_pop, R.id.my_view})
     void btClick (View v) {
         switch (v.getId()) {
             case R.id.bt_selectlist:
-//                textView.setText("vvdff");
                 ToastUtils.showToast(this, "Main_btSelect---->hahahaha");
                 startActivity(new Intent(mContext, TextSelectActivity.class));
                 break;
@@ -99,6 +78,8 @@ public class MainActivity extends BaseActivity {
                         builder.dismiss();
                     }
                 });
+                break;
+            case R.id.my_view:
                 break;
 
         }

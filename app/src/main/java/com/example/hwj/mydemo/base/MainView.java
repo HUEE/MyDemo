@@ -1,4 +1,4 @@
-package com.example.hwj.mydemo.Base;
+package com.example.hwj.mydemo.base;
 
 /**
  * Created by WuXiaolong on 2015/9/23.

@@ -1,4 +1,4 @@
-package com.example.hwj.mydemo.SelectList;
+package com.example.hwj.mydemo.selectList;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -10,13 +10,13 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.hwj.mydemo.R;
-import com.example.hwj.mydemo.SelectList.CallBack.SelectListCallBack;
-import com.example.hwj.mydemo.SelectList.sortlistview.CharacterParser;
-import com.example.hwj.mydemo.SelectList.sortlistview.PinyinComparator;
-import com.example.hwj.mydemo.SelectList.sortlistview.SideBar;
-import com.example.hwj.mydemo.SelectList.sortlistview.SortAdapter;
-import com.example.hwj.mydemo.SelectList.sortlistview.SortModel;
-import com.example.hwj.mydemo.utils.tools.DeviceTools;
+import com.example.hwj.mydemo.selectList.CallBack.SelectListCallBack;
+import com.example.hwj.mydemo.selectList.sortlistview.CharacterParser;
+import com.example.hwj.mydemo.selectList.sortlistview.PinyinComparator;
+import com.example.hwj.mydemo.selectList.sortlistview.SideBar;
+import com.example.hwj.mydemo.selectList.sortlistview.SortAdapter;
+import com.example.hwj.mydemo.selectList.sortlistview.SortModel;
+import com.example.hwj.mydemo.utils.DeviceTools;
 
 import java.util.ArrayList;
 import java.util.Collections;

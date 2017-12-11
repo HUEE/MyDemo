@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
 // 依赖bugly热修复插件脚本
 apply from: 'tinker-support.gradle'
 
@@ -56,7 +55,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     //注解
     compile 'com.jakewharton:butterknife:8.2.1'
-    apt 'com.jakewharton:butterknife-compiler:8.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.2.1'
     //透明状态栏
     compile 'com.github.niorgai:StatusBarCompat:1.1.0'
     compile files('libs/BaiduLBS_Android_3.5.0.jar')
@@ -72,4 +71,10 @@ dependencies {
     //Bugly
     compile 'com.tencent.bugly:crashreport_upgrade:latest.release'
     compile 'com.android.support:multidex:1.0.1'
+
+    //dagger依赖注入
+    compile 'com.google.dagger:dagger-android:2.11'
+    compile 'com.google.dagger:dagger-android-support:2.11'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.11'
 }

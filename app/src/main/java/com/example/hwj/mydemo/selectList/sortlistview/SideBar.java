@@ -1,4 +1,4 @@
-package com.example.hwj.mydemo.SelectList.sortlistview;
+package com.example.hwj.mydemo.selectList.sortlistview;
 
 import android.content.Context;
 import android.graphics.Canvas;

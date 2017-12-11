@@ -22,11 +22,11 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <com.example.hwj.mydemo.SelectList.SelectListView
+    <com.example.hwj.mydemo.selectList.SelectListView
         android:id="@+id/select_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </com.example.hwj.mydemo.SelectList.SelectListView>
+    </com.example.hwj.mydemo.selectList.SelectListView>
         <TextView
             android:layout_centerInParent="true"
             android:id="@+id/content"

@@ -1,4 +1,4 @@
-package com.example.hwj.mydemo.utils.dagger.scopes;
+package com.example.hwj.mydemo.dagger.scopes;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

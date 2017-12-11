@@ -1,4 +1,4 @@
-package com.example.hwj.mydemo.SelectList.CallBack;
+package com.example.hwj.mydemo.selectList.CallBack;
 
 /**
  * Created by hwj on 16-8-16.

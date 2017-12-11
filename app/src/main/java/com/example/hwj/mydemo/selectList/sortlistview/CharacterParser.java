@@ -4,7 +4,7 @@
  * @author	LuRuihui
  * @version	0.1
  */
-package com.example.hwj.mydemo.SelectList.sortlistview;
+package com.example.hwj.mydemo.selectList.sortlistview;
 
 /**
  * Java汉字转换为拼音
