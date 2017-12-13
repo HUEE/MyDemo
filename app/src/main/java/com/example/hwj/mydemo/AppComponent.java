@@ -1,7 +1,9 @@
 package com.example.hwj.mydemo;
 
+import com.example.hwj.mydemo.dagger.AppModule;
 import com.example.hwj.mydemo.dagger.BuildersModule;
-import com.example.hwj.mydemo.dagger.NetworkModule;
+import com.example.hwj.mydemo.dagger.HttpModule;
+import com.example.hwj.mydemo.dagger.ServiceModule;
 
 import javax.inject.Singleton;
 
@@ -16,7 +18,9 @@ import dagger.android.support.AndroidSupportInjectionModule;
 
 @Singleton
 @Component(modules = {
-        NetworkModule.class,
+        AppModule.class,
+        HttpModule.class,
+        ServiceModule.class,
         BuildersModule.class,
         AndroidInjectionModule.class,
         AndroidSupportInjectionModule.class

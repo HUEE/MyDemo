@@ -7,10 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.hwj.mydemo.network.ApiService;
-import com.example.hwj.mydemo.network.MovieActivity;
 import com.example.hwj.mydemo.R;
 import com.example.hwj.mydemo.base.DaggerBaseActivity;
+import com.example.hwj.mydemo.dagger.bean.Login;
+import com.example.hwj.mydemo.dagger.qualifiers.User;
+import com.example.hwj.mydemo.network.MovieActivity;
+import com.example.hwj.mydemo.network.http.HttpService;
 import com.example.hwj.mydemo.popwindow.PopWindow;
 import com.example.hwj.mydemo.recyclerView.CollapsingToolbarLayoutActivity;
 import com.example.hwj.mydemo.selectList.TextSelectActivity;
@@ -31,8 +33,17 @@ public class MainActivity extends DaggerBaseActivity {
     @BindView(R.id.bt_pop)
     Button bt_pop;
 
+    //    @Inject
+//    ApiService apiService;
     @Inject
-    ApiService apiService;
+    HttpService httpService;
+
+    @Inject
+    Login login;
+
+    @Inject
+    @User
+    Login login1;
 
     @Override
     protected void onCreate (@Nullable Bundle savedInstanceState) {

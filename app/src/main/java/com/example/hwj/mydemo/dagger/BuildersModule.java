@@ -1,5 +1,6 @@
 package com.example.hwj.mydemo.dagger;
 
+import com.example.hwj.mydemo.dagger.scopes.ActivityScope;
 import com.example.hwj.mydemo.main.MainActivity;
 
 import dagger.Module;
@@ -26,7 +27,7 @@ public abstract class BuildersModule {
 //    @ContributesAndroidInjector(modules = UserModule.class)
 //    abstract SecondActivity contributeSecondActivityInjector();
 //
-//    @ActivityScope
-    @ContributesAndroidInjector
+    @ActivityScope
+    @ContributesAndroidInjector(modules = {UserModule.class})
     abstract MainActivity contributeActivityInjector ();
 }
