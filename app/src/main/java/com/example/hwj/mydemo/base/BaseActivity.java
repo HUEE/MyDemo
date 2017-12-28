@@ -9,6 +9,8 @@ import com.example.hwj.mydemo.R;
 import com.example.hwj.mydemo.utils.Logger;
 import com.example.hwj.mydemo.utils.Network;
 
+import javax.inject.Inject;
+
 import butterknife.ButterKnife;
 import qiu.niorgai.StatusBarCompat;
 import rx.subscriptions.CompositeSubscription;
@@ -17,7 +19,7 @@ import rx.subscriptions.CompositeSubscription;
  * Created by hwj on 16-8-15.
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity {
 
     protected final String TAG = this.getClass().getSimpleName();
     public Network network;

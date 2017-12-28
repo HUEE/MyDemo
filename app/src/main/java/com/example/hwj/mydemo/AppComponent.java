@@ -4,6 +4,7 @@ import com.example.hwj.mydemo.dagger.AppModule;
 import com.example.hwj.mydemo.dagger.BuildersModule;
 import com.example.hwj.mydemo.dagger.HttpModule;
 import com.example.hwj.mydemo.dagger.ServiceModule;
+import com.example.hwj.mydemo.dagger.StorageModule;
 
 import javax.inject.Singleton;
 
@@ -18,9 +19,10 @@ import dagger.android.support.AndroidSupportInjectionModule;
 
 @Singleton
 @Component(modules = {
-        AppModule.class,
+//        AppModule.class,
         HttpModule.class,
         ServiceModule.class,
+        StorageModule.class,
         BuildersModule.class,
         AndroidInjectionModule.class,
         AndroidSupportInjectionModule.class

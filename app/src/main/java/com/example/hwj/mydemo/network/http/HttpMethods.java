@@ -57,15 +57,15 @@ public class HttpMethods {
         return SingletonHolder.INSTANCE;
     }
 
-    /**
-     * 用于获取豆瓣电影Top250的数据
-     * @param start      起始位置
-     * @param count      获取长度
-     */
-    public Observable getTopMovie(int start, int count) {
-        return httpService.getTopMovie(start, count)
-                .map(new HttpResultFunc<List<Subject>>());
-    }
+//    /**
+//     * 用于获取豆瓣电影Top250的数据
+//     * @param start      起始位置
+//     * @param count      获取长度
+//     */
+//    public Observable getTopMovie(int start, int count) {
+//        return httpService.getTopMovie(start, count)
+//                .map(new HttpResultFunc<List<Subject>>());
+//    }
 
     public Observable text(){
         Map map = new HashMap();
@@ -78,20 +78,20 @@ public class HttpMethods {
         return httpService.execPost("http://apis.juhe.cn/cook/query.php",map);
     }
 
-    /**
-     * 用来统一处理Http的resultCode,并将HttpResult的Data部分剥离出来返回给subscriber
-     *
-     * @param <T> Subscriber真正需要的数据类型，也就是Data部分的数据类型
-     */
-    private class HttpResultFunc<T> implements Func1<HttpResult<T>, T> {
-
-        @Override
-        public T call(HttpResult<T> httpResult) {
-            if (httpResult.getCount() == 0) {
-                throw new ApiException(100);
-            }
-            return httpResult.getSubjects();
-        }
-    }
+//    /**
+//     * 用来统一处理Http的resultCode,并将HttpResult的Data部分剥离出来返回给subscriber
+//     *
+//     * @param <T> Subscriber真正需要的数据类型，也就是Data部分的数据类型
+//     */
+//    private class HttpResultFunc<T> implements Func1<HttpResult<T>, T> {
+//
+//        @Override
+//        public T call(HttpResult<T> httpResult) {
+//            if (httpResult.getCount() == 0) {
+//                throw new ApiException(100);
+//            }
+//            return httpResult.getSubjects();
+//        }
+//    }
 
 }

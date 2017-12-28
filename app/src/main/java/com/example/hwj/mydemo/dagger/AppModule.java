@@ -1,14 +1,6 @@
 package com.example.hwj.mydemo.dagger;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-
-import javax.inject.Named;
-import javax.inject.Singleton;
-
 import dagger.Module;
-import dagger.Provides;
 
 /**
  * Created by hwj on 17-12-12.
@@ -24,7 +16,7 @@ public class AppModule {
 //
 //    @Singleton
 //    @Provides
-//    public MyApplication providerContext () {
+//    public MyApplication providerContext (MyApplication context) {
 //        return context;
 //    }
 //
@@ -34,10 +26,10 @@ public class AppModule {
 //        return context;
 //    }
 
-    @Singleton
-    @Provides
-    @Named("default")
-    public SharedPreferences providerSharePreference (Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context);
-    }
+//    @Singleton
+//    @Provides
+//    @Named("default")
+//    public SharedPreferences providerSharePreference (MyApplication context) {
+//        return PreferenceManager.getDefaultSharedPreferences(context);
+//    }
 }

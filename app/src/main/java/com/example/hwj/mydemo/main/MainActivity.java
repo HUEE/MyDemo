@@ -1,6 +1,7 @@
 package com.example.hwj.mydemo.main;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -9,9 +10,11 @@ import android.widget.Toast;
 
 import com.example.hwj.mydemo.R;
 import com.example.hwj.mydemo.base.DaggerBaseActivity;
+import com.example.hwj.mydemo.base.BaseView;
 import com.example.hwj.mydemo.dagger.bean.Login;
 import com.example.hwj.mydemo.dagger.qualifiers.User;
 import com.example.hwj.mydemo.network.MovieActivity;
+import com.example.hwj.mydemo.network.MoviePresenter;
 import com.example.hwj.mydemo.network.http.HttpService;
 import com.example.hwj.mydemo.popwindow.PopWindow;
 import com.example.hwj.mydemo.recyclerView.CollapsingToolbarLayoutActivity;
@@ -21,9 +24,10 @@ import com.example.hwj.mydemo.utils.ToastUtils;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+
 import butterknife.OnClick;
 
-public class MainActivity extends DaggerBaseActivity {
+public class MainActivity extends DaggerBaseActivity<MoviePresenter> implements BaseView {
     @BindView(R.id.bt_selectlist)
     Button bt_selectlist;
     @BindView(R.id.bt_recyclerView1)
@@ -33,11 +37,6 @@ public class MainActivity extends DaggerBaseActivity {
     @BindView(R.id.bt_pop)
     Button bt_pop;
 
-    //    @Inject
-//    ApiService apiService;
-    @Inject
-    HttpService httpService;
-
     @Inject
     Login login;
 
@@ -45,9 +44,17 @@ public class MainActivity extends DaggerBaseActivity {
     @User
     Login login1;
 
+    @Inject
+    SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate (@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected BaseView attachView () {
+        return this;
     }
 
     @Override
@@ -57,6 +64,7 @@ public class MainActivity extends DaggerBaseActivity {
 
     @Override
     public void init () {
+        presenter.getVisitor();
     }
 
 
@@ -94,5 +102,15 @@ public class MainActivity extends DaggerBaseActivity {
                 break;
 
         }
+    }
+
+    @Override
+    public void getDataSuccess (Object model) {
+
+    }
+
+    @Override
+    public void getDataFail () {
+
     }
 }

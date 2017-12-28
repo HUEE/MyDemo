@@ -6,6 +6,7 @@ import com.example.hwj.mydemo.network.http.Bean.Subject;
 import java.util.List;
 import java.util.Map;
 
+import retrofit2.Response;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -22,13 +23,12 @@ public interface HttpService {
 
     //获取豆瓣top250电影
     @GET("top250")
-    Observable<HttpResult<List<Subject>>> getTopMovie(@Query("start") int start, @Query("count") int count);
+    Observable<HttpResult<List<Subject>>> getTopMovie (@Query("start") int start, @Query("count") int count);
 
     //Post请求
     @FormUrlEncoded
     @POST
-    Observable<Object> execPost(@Url String url, @FieldMap Map<String, String> maps);
-
+    Observable<Response<com.example.hwj.mydemo.network.HttpResult>> execPost (@Url String url, @FieldMap Map<String, String> maps);
 
 
 }

@@ -7,10 +7,10 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.example.hwj.mydemo.base.MainView;
-import com.example.hwj.mydemo.base.MvpActivity;
-import com.example.hwj.mydemo.network.Adapter.ListAdapter;
 import com.example.hwj.mydemo.R;
+import com.example.hwj.mydemo.base.BaseView;
+import com.example.hwj.mydemo.base.DaggerBaseActivity;
+import com.example.hwj.mydemo.network.Adapter.ListAdapter;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ import static com.example.hwj.mydemo.R.id.swipeRefreshLayout;
  * Created by hwj on 16-9-8.
  */
 
-public class MovieActivity extends MvpActivity<MoviePresenter> implements MainView {
+public class MovieActivity extends DaggerBaseActivity<MoviePresenter> implements BaseView {
     @BindView(swipeRefreshLayout)
     SwipeRefreshLayout refreshLayout;
     @BindView(R.id.gridRv)
@@ -31,40 +31,40 @@ public class MovieActivity extends MvpActivity<MoviePresenter> implements MainVi
     ListAdapter adapter;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate (@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    protected MoviePresenter createPresenter() {
-        return new MoviePresenter(this);
+    protected BaseView attachView () {
+        return this;
     }
 
 
     @Override
-    protected int setLayout() {
+    protected int setLayout () {
         return R.layout.activity_retrofit;
     }
 
     @Override
-    protected void init() {
+    protected void init () {
         adapter = new ListAdapter();
         gridRv.setLayoutManager(new LinearLayoutManager(mContext));
         gridRv.setAdapter(adapter);
         refreshLayout.setColorSchemeColors(Color.BLUE, Color.GREEN, Color.RED, Color.YELLOW);
         refreshLayout.setEnabled(false);
         adapter.setImages(null);
-        mvpPresenter.loadData(this, 0, 30);
-        mvpPresenter.text(this);
+        presenter.loadData(this, 0, 30);
+        presenter.text(this);
     }
 
     @Override
-    public void getDataSuccess(Object model) {
+    public void getDataSuccess (Object model) {
         adapter.setImages((List) model);
     }
 
     @Override
-    public void getDataFail() {
+    public void getDataFail () {
 
     }
 
