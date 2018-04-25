@@ -14,7 +14,7 @@ import rx.subscriptions.CompositeSubscription;
 /**
  * Created by hwj on 2016/9/13.
  */
-public class BasePresenter<V extends BaseView> implements Presenter<V> {
+public class BasePresenter<V> implements Presenter<V> {
     public V mvpView;
     public HttpMethods apiStores = HttpMethods.getInstance();
     private CompositeSubscription mCompositeSubscription;

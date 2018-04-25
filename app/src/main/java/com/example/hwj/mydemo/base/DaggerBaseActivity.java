@@ -22,7 +22,7 @@ public abstract class DaggerBaseActivity<P extends BasePresenter> extends BaseAc
     DispatchingAndroidInjector<android.app.Fragment> frameworkFragmentInjector;
 
     @Inject
-    P presenter;
+    public P presenter;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {

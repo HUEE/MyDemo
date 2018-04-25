@@ -3,7 +3,7 @@ package com.example.hwj.mydemo.dagger;
 import android.content.Context;
 
 import com.example.hwj.mydemo.MyApplication;
-import com.example.hwj.mydemo.network.http.ParamsInterceptor;
+//import com.example.hwj.mydemo.network.http.ParamsInterceptor;
 import com.example.hwj.mydemo.utils.RequestInterceptor;
 
 import java.util.concurrent.TimeUnit;
@@ -46,7 +46,7 @@ public class HttpModule {
                 .addInterceptor(loggingInterceptor)
                 .addInterceptor(requestInterceptor)
                 //请求参数拦截
-                .addInterceptor(new ParamsInterceptor(context))
+//                .addInterceptor(new ParamsInterceptor(context))
                 .build();
     }
 
