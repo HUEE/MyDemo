@@ -3,8 +3,8 @@ package com.example.hwj.mydemo.anim;
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
 
-/** 动画相关 Created by hwj on 2018/4/17. */
-public class Anim {
+/** 属性动画相关 Created by hwj on 2018/4/17. */
+public class PropertyAnim {
   public void valueOfInt(int... value) {
     ValueAnimator.ofInt(value);
   }
@@ -16,5 +16,4 @@ public class Anim {
   public void valueOfObject(TypeEvaluator evaluator, Object... value) {
     ValueAnimator.ofObject(evaluator, value);
   }
-
 }
