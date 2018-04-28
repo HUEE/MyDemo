@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.example.hwj.mydemo.R;
 import com.example.hwj.mydemo.anim.AnimActivity;
-import com.example.hwj.mydemo.base.BaseView;
+import com.example.hwj.mydemo.base.IView;
 import com.example.hwj.mydemo.base.DaggerBaseActivity;
 import com.example.hwj.mydemo.dagger.bean.Login;
 import com.example.hwj.mydemo.dagger.qualifiers.User;
@@ -26,7 +26,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MainActivity extends DaggerBaseActivity<MoviePresenter> implements BaseView {
+public class MainActivity extends DaggerBaseActivity<MoviePresenter> implements IView {
   @BindView(R.id.bt_selectlist)
   Button bt_selectlist;
 
@@ -51,7 +51,7 @@ public class MainActivity extends DaggerBaseActivity<MoviePresenter> implements 
   }
 
   @Override
-  protected BaseView attachView() {
+  protected IView attachView() {
     return this;
   }
 

@@ -31,7 +31,7 @@ public abstract class DaggerBaseActivity<P extends BasePresenter> extends BaseAc
         presenter.attachView(this);
     }
 
-    protected abstract BaseView attachView ();
+    protected abstract IView attachView ();
 
     @Override
     public AndroidInjector<Fragment> supportFragmentInjector () {

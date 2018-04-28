@@ -8,7 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.hwj.mydemo.R;
-import com.example.hwj.mydemo.base.BaseView;
+import com.example.hwj.mydemo.base.IView;
 import com.example.hwj.mydemo.base.DaggerBaseActivity;
 import com.example.hwj.mydemo.network.Adapter.ListAdapter;
 
@@ -23,7 +23,7 @@ import static com.example.hwj.mydemo.R.id.swipeRefreshLayout;
  * Created by hwj on 16-9-8.
  */
 
-public class MovieActivity extends DaggerBaseActivity<MoviePresenter> implements BaseView {
+public class MovieActivity extends DaggerBaseActivity<MoviePresenter> implements IView {
     @BindView(swipeRefreshLayout)
     SwipeRefreshLayout refreshLayout;
     @BindView(R.id.gridRv)
@@ -36,7 +36,7 @@ public class MovieActivity extends DaggerBaseActivity<MoviePresenter> implements
     }
 
     @Override
-    protected BaseView attachView () {
+    protected IView attachView () {
         return this;
     }
 

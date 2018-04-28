@@ -1,6 +1,6 @@
 package com.example.hwj.mydemo.base;
 
-public interface Presenter<V> {
+public interface IPresenter<V> {
 
     void attachView(V view);
 

@@ -3,8 +3,7 @@ package com.example.hwj.mydemo.network;
 import android.content.Context;
 
 import com.example.hwj.mydemo.base.BasePresenter;
-import com.example.hwj.mydemo.base.BaseView;
-import com.example.hwj.mydemo.network.http.ApiException;
+import com.example.hwj.mydemo.base.IView;
 import com.example.hwj.mydemo.network.http.Bean.Subject;
 import com.example.hwj.mydemo.network.http.progress.ProgressSubscriber;
 import com.example.hwj.mydemo.network.http.progress.SubscriberOnNextListener;
@@ -15,14 +14,13 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import retrofit2.Response;
 import rx.Observable;
 
 /**
  * Created by hwj
  * on 2016/9/13.
  */
-public class MoviePresenter extends BasePresenter<BaseView> {
+public class MoviePresenter extends BasePresenter<IView> {
     private SubscriberOnNextListener getTopMovieOnNext;
     private SubscriberOnNextListener textOnNext;
 
