@@ -11,14 +11,14 @@ import rx.schedulers.Schedulers;
 import rx.subjects.PublishSubject;
 
 /**
+ * switchMap 测试
  * Created by hwj on 2018/5/10.
  */
 
-public class RxTest {
+public class SwitchMapTest {
     private static final Handler handler = new Handler(Looper.getMainLooper());
 
     public static void rxTest() {
-
         Observable.just("A", "B")
                 .flatMap(s -> Observable.just(s).subscribeOn(Schedulers.newThread()))
                 .subscribeOn(Schedulers.newThread())
@@ -51,11 +51,6 @@ public class RxTest {
                     return Observable.just(s).map(str -> {
                         Logger.d("===Observable<String> map call: " + Thread.currentThread()
                                 .getName());
-//                        try {
-//                            Thread.currentThread().sleep(500);
-//                        } catch (InterruptedException e) {
-//                            e.printStackTrace();
-//                        }
                         for (int i = 0; i < 10000000; i++) ;
                         return str + "_";
                     }).subscribeOn(Schedulers.io());
