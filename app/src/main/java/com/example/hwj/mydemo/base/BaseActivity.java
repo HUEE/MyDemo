@@ -20,11 +20,8 @@ import rx.subscriptions.CompositeSubscription;
  */
 
 public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity {
-
     protected final String TAG = this.getClass().getSimpleName();
-
     private final BehaviorSubject<LifecycleEvent> lifecycleSubject = BehaviorSubject.create();
-
     public Observable<LifecycleEvent> lifecycle() {
         return lifecycleSubject;
     }
