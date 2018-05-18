@@ -1,9 +1,6 @@
 package com.example.hwj.mydemo.dagger;
 
-import android.content.Context;
-
 import com.example.hwj.mydemo.MyApplication;
-//import com.example.hwj.mydemo.network.http.ParamsInterceptor;
 import com.example.hwj.mydemo.utils.RequestInterceptor;
 
 import java.util.concurrent.TimeUnit;
@@ -19,6 +16,8 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+//import com.example.hwj.mydemo.network.http.ParamsInterceptor;
+
 /**
  * Created by hwj on 17-12-12.
  */
@@ -31,13 +30,13 @@ public class HttpModule {
 
     @Provides
     @Singleton
-    Interceptor requestInterceptor (RequestInterceptor interceptor) {
+    Interceptor requestInterceptor(RequestInterceptor interceptor) {
         return interceptor;
     }
 
     @Provides
     @Singleton
-    OkHttpClient provideOkHttpClient (RequestInterceptor requestInterceptor, MyApplication context) {
+    OkHttpClient provideOkHttpClient(RequestInterceptor requestInterceptor, MyApplication context) {
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -52,7 +51,7 @@ public class HttpModule {
 
     @Singleton
     @Provides
-    Retrofit retrofit (OkHttpClient okHttpClient) {
+    Retrofit retrofit(OkHttpClient okHttpClient) {
         return new Retrofit
                 .Builder()
                 .baseUrl(BASE_URL)
