@@ -22,6 +22,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -53,18 +54,38 @@
             android:text="Pop弹窗"
             android:textSize="22sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
+
         <Button
             android:id="@+id/my_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="自定义View"/>
+            android:text="自定义View" />
         <Button
             android:id="@+id/bt_anim"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="动画"/>
+            android:text="动画" />
     </LinearLayout>
+
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="sdfsfd" />
+
+        <view
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/cardview_shadow_start_color" />
+    </RelativeLayout>
 
 
 </LinearLayout>

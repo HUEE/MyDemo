@@ -18,7 +18,7 @@ import com.example.hwj.mydemo.network.MovieActivity;
 import com.example.hwj.mydemo.network.MoviePresenter;
 import com.example.hwj.mydemo.popwindow.PopWindow;
 import com.example.hwj.mydemo.recyclerView.CollapsingToolbarLayoutActivity;
-import com.example.hwj.mydemo.rx.SwitchMapTest;
+import com.example.hwj.mydemo.rx.UnsubscribeTest;
 import com.example.hwj.mydemo.selectList.TextSelectActivity;
 import com.example.hwj.mydemo.utils.ToastUtils;
 
@@ -67,7 +67,7 @@ public class MainActivity extends DaggerBaseActivity<MoviePresenter> implements 
 
     @Override
     public void init() {
-        SwitchMapTest.rxTest();
+        new UnsubscribeTest();
         presenter.getVisitor();
     }
 

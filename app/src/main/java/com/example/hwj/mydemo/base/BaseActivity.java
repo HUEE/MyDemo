@@ -12,8 +12,9 @@ import com.example.hwj.mydemo.utils.Network;
 import butterknife.ButterKnife;
 import qiu.niorgai.StatusBarCompat;
 import rx.Observable;
+import rx.functions.Action0;
+import rx.functions.Action1;
 import rx.subjects.BehaviorSubject;
-import rx.subscriptions.CompositeSubscription;
 
 /**
  * Created by hwj on 16-8-15.
@@ -28,7 +29,31 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
 
     public Network network;
     public Context mContext;
-    private CompositeSubscription mCompositeSubscription;
+
+    public static Action1<Throwable> ACTION_THROWABLE_REPORT =
+            throwable -> {
+                Logger.d(throwable.getMessage());
+            };
+
+    public static Action0 ACTION0_NOTHING = () -> {
+    };
+
+    public void creates(Action1<Bundle> action) {
+        creates(action, ACTION0_NOTHING);
+    }
+
+    public void creates(final Action1<Bundle> onCreate, Action0 onDestroy) {
+        lifecycleSubject.subscribe(
+                event -> {
+                    if (event instanceof LifecycleEvent.Create) {
+                        onCreate.call(((LifecycleEvent.Create) event).bundle);
+                    } else if (event == LifecycleEvent.Destroy) {
+                        onDestroy.call();
+                    }
+                },
+                ACTION_THROWABLE_REPORT,
+                ACTION0_NOTHING);
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
