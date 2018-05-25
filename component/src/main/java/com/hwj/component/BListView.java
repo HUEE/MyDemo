@@ -15,11 +15,11 @@ import com.scwang.smartrefresh.layout.header.ClassicsHeader;
  * Created by hwj on 2018/5/24.
  */
 
-public class BRecycleView extends LinearLayout {
+public class BListView extends LinearLayout {
     RecyclerView recyclerView;
     SmartRefreshLayout refreshLayout;
 
-    public BRecycleView(Context context, @Nullable AttributeSet attrs) {
+    public BListView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         // 加载布局
         LayoutInflater.from(context).inflate(R.layout.rv_main, this);

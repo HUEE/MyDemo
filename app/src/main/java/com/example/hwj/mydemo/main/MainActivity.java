@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.Toast;
 
@@ -23,7 +22,7 @@ import com.example.hwj.mydemo.recyclerView.CollapsingToolbarLayoutActivity;
 import com.example.hwj.mydemo.rx.UnsubscribeTest;
 import com.example.hwj.mydemo.selectList.TextSelectActivity;
 import com.example.hwj.mydemo.utils.ToastUtils;
-import com.hwj.component.BRecycleView;
+import com.hwj.component.BListView;
 
 import java.util.Arrays;
 
@@ -33,7 +32,7 @@ import butterknife.BindView;
 
 public class MainActivity extends DaggerBaseActivity<MoviePresenter> implements IView, BaseQuickAdapter.OnItemClickListener {
     @BindView(R.id.main_rv)
-    BRecycleView bRecycleView;
+    BListView bListView;
 
     @Inject
     Login login;
@@ -72,10 +71,10 @@ public class MainActivity extends DaggerBaseActivity<MoviePresenter> implements 
         adapter = new MainRvAdapter(Arrays.asList(items));
         adapter.setOnItemClickListener(this);
         //列表
-        bRecycleView.getRecycleView().setAdapter(adapter);
+        bListView.getRecycleView().setAdapter(adapter);
         //下拉刷新
 //        bRecycleView.getRefreshLayout().setEnableRefresh(false);
-        bRecycleView.getRefreshLayout().setOnRefreshListener(v -> {
+        bListView.getRefreshLayout().setOnRefreshListener(v -> {
 
         });
     }
