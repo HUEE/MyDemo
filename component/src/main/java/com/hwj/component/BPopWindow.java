@@ -1,4 +1,4 @@
-package com.example.hwj.mydemo.popwindow;
+package com.hwj.component;
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,7 +20,7 @@ import android.widget.PopupWindow;
  * Created by hwj on 17-8-8.
  */
 
-public class PopWindow {
+public class BPopWindow {
 
     /**
      * PopWindow创建者

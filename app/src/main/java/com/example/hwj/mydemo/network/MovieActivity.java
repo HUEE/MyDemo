@@ -8,8 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.hwj.mydemo.R;
-import com.example.hwj.mydemo.base.IView;
 import com.example.hwj.mydemo.base.DaggerBaseActivity;
+import com.example.hwj.mydemo.base.IView;
 import com.example.hwj.mydemo.network.Adapter.ListAdapter;
 
 import java.util.List;
@@ -31,23 +31,23 @@ public class MovieActivity extends DaggerBaseActivity<MoviePresenter> implements
     ListAdapter adapter;
 
     @Override
-    protected void onCreate (@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    protected IView attachView () {
+    protected IView attachView() {
         return this;
     }
 
 
     @Override
-    protected int setLayout () {
+    protected int setLayout() {
         return R.layout.activity_retrofit;
     }
 
     @Override
-    protected void init () {
+    protected void init() {
         adapter = new ListAdapter();
         gridRv.setLayoutManager(new LinearLayoutManager(mContext));
         gridRv.setAdapter(adapter);
@@ -59,12 +59,12 @@ public class MovieActivity extends DaggerBaseActivity<MoviePresenter> implements
     }
 
     @Override
-    public void getDataSuccess (Object model) {
+    public void getDataSuccess(Object model) {
         adapter.setImages((List) model);
     }
 
     @Override
-    public void getDataFail () {
+    public void getDataFail() {
 
     }
 

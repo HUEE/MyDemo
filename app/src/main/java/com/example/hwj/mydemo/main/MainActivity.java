@@ -17,8 +17,7 @@ import com.example.hwj.mydemo.dagger.bean.Login;
 import com.example.hwj.mydemo.dagger.qualifiers.User;
 import com.example.hwj.mydemo.network.MovieActivity;
 import com.example.hwj.mydemo.network.MoviePresenter;
-import com.example.hwj.mydemo.popwindow.PopWindow;
-import com.example.hwj.mydemo.recyclerView.CollapsingToolbarLayoutActivity;
+import com.hwj.component.BPopWindow;
 import com.example.hwj.mydemo.rx.UnsubscribeTest;
 import com.example.hwj.mydemo.selectList.TextSelectActivity;
 import com.example.hwj.mydemo.utils.ToastUtils;
@@ -95,7 +94,7 @@ public class MainActivity extends DaggerBaseActivity<MoviePresenter> implements 
                 startActivity(new Intent(mContext, TextSelectActivity.class));
                 break;
             case 1:
-                startActivity(new Intent(mContext, CollapsingToolbarLayoutActivity.class));
+//                startActivity(new Intent(mContext, CollapsingToolbarLayoutActivity.class));
                 break;
             case 2:
                 startActivity(new Intent(mContext, MovieActivity.class));
@@ -112,8 +111,8 @@ public class MainActivity extends DaggerBaseActivity<MoviePresenter> implements 
     }
 
     private void showPop(View view) {
-        final PopWindow.Builder builder =
-                new PopWindow.Builder(this)
+        final BPopWindow.Builder builder =
+                new BPopWindow.Builder(this)
                         .setContentView(R.layout.pop)
                         .setBackgroundDimEnable(true)
                         .setFocusAndOutsideEnable(false)
