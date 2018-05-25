@@ -9,7 +9,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
         // tinkersupport插件
-        classpath "com.tencent.bugly:tinker-support:1.0.6"
+        classpath "com.tencent.bugly:tinker-support:1.1.2"
         //support java8
         classpath'me.tatarka:gradle-retrolambda:3.2.5'
 

@@ -8,7 +8,6 @@ import android.os.Build;
 import android.support.multidex.MultiDex;
 import android.util.Log;
 
-import com.example.hwj.mydemo.dagger.NetworkModule;
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
 import com.tencent.bugly.beta.interfaces.BetaPatchListener;
@@ -28,28 +27,28 @@ public class ApplicationLike extends DefaultApplicationLike {
     public AppComponent appComponent;
     private Application application;
 
-    public ApplicationLike (Application application, int tinkerFlags,
-                            boolean tinkerLoadVerifyFlag, long applicationStartElapsedTime,
-                            long applicationStartMillisTime, Intent tinkerResultIntent) {
+    public ApplicationLike(Application application, int tinkerFlags,
+                           boolean tinkerLoadVerifyFlag, long applicationStartElapsedTime,
+                           long applicationStartMillisTime, Intent tinkerResultIntent) {
         super(application, tinkerFlags, tinkerLoadVerifyFlag, applicationStartElapsedTime,
                 applicationStartMillisTime, tinkerResultIntent);
         this.application = application;
     }
 
     @Override
-    public void onCreate () {
+    public void onCreate() {
         initBugly();
         initDagger();
     }
 
-    private void initDagger () {
+    private void initDagger() {
 //        appComponent = DaggerAppComponent.builder()
 //                .networkModule(new NetworkModule())
 //                .build();
 //        appComponent.inject(application);
     }
 
-    private void initBugly () {
+    private void initBugly() {
         // 设置是否开启热更新能力，默认为true
         Beta.enableHotfix = true;
         // 设置是否自动下载补丁，默认为true
@@ -61,40 +60,40 @@ public class ApplicationLike extends DefaultApplicationLike {
         // 补丁回调接口
         Beta.betaPatchListener = new BetaPatchListener() {
             @Override
-            public void onPatchReceived (String patchFile) {
+            public void onPatchReceived(String patchFile) {
                 Log.d(TAG, "补丁下载地址-->" + patchFile);
             }
 
             @Override
-            public void onDownloadReceived (long savedLength, long totalLength) {
+            public void onDownloadReceived(long savedLength, long totalLength) {
                 Log.d(TAG, String.format(Locale.getDefault(), "%s %d%%",
                         Beta.strNotificationDownloading,
                         (int) (totalLength == 0 ? 0 : savedLength * 100 / totalLength)));
             }
 
             @Override
-            public void onDownloadSuccess (String msg) {
+            public void onDownloadSuccess(String msg) {
                 Log.d(TAG, "补丁下载成功-->" + msg);
             }
 
             @Override
-            public void onDownloadFailure (String msg) {
+            public void onDownloadFailure(String msg) {
                 Log.d(TAG, "补丁下载失败");
 
             }
 
             @Override
-            public void onApplySuccess (String msg) {
+            public void onApplySuccess(String msg) {
                 Log.d(TAG, "补丁应用成功-->" + msg);
             }
 
             @Override
-            public void onApplyFailure (String msg) {
+            public void onApplyFailure(String msg) {
                 Log.d(TAG, "补丁应用成功-->" + msg);
             }
 
             @Override
-            public void onPatchRollback () {
+            public void onPatchRollback() {
 
             }
         };
@@ -109,14 +108,14 @@ public class ApplicationLike extends DefaultApplicationLike {
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
-    public void onBaseContextAttached (Context base) {
+    public void onBaseContextAttached(Context base) {
         super.onBaseContextAttached(base);
         MultiDex.install(base);
         Beta.installTinker(this);
     }
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-    public void registerActivityLifecycleCallback (
+    public void registerActivityLifecycleCallback(
             Application.ActivityLifecycleCallbacks callbacks) {
         getApplication().registerActivityLifecycleCallbacks(callbacks);
     }

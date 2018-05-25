@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="main_items">
+        <item>多级类别显示</item>
+        <item>下拉刷新List</item>
+        <item>Pop弹窗</item>
+        <item>自定义View</item>
+        <item>动画</item>
+    </string-array>
+</resources>

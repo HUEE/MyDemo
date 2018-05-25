@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.hwj.mydemo.R;
+import com.example.hwj.mydemo.adapter.MainRvAdapter;
 import com.example.hwj.mydemo.anim.AnimActivity;
 import com.example.hwj.mydemo.base.DaggerBaseActivity;
 import com.example.hwj.mydemo.base.IView;
@@ -21,24 +23,17 @@ import com.example.hwj.mydemo.recyclerView.CollapsingToolbarLayoutActivity;
 import com.example.hwj.mydemo.rx.UnsubscribeTest;
 import com.example.hwj.mydemo.selectList.TextSelectActivity;
 import com.example.hwj.mydemo.utils.ToastUtils;
+import com.hwj.component.BRecycleView;
+
+import java.util.Arrays;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
-public class MainActivity extends DaggerBaseActivity<MoviePresenter> implements IView {
-    @BindView(R.id.bt_selectlist)
-    Button bt_selectlist;
-
-    @BindView(R.id.bt_recyclerView1)
-    Button bt_recyclerView1;
-
-    @BindView(R.id.bt_retrofit)
-    Button bt_retrofit;
-
-    @BindView(R.id.bt_pop)
-    Button bt_pop;
+public class MainActivity extends DaggerBaseActivity<MoviePresenter> implements IView, BaseQuickAdapter.OnItemClickListener {
+    @BindView(R.id.main_rv)
+    BRecycleView bRecycleView;
 
     @Inject
     Login login;
@@ -49,6 +44,10 @@ public class MainActivity extends DaggerBaseActivity<MoviePresenter> implements 
 
     @Inject
     SharedPreferences sharedPreferences;
+
+    String[] items;
+
+    BaseQuickAdapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,55 +68,16 @@ public class MainActivity extends DaggerBaseActivity<MoviePresenter> implements 
     public void init() {
         new UnsubscribeTest();
         presenter.getVisitor();
-    }
+        items = getResources().getStringArray(R.array.main_items);
+        adapter = new MainRvAdapter(Arrays.asList(items));
+        adapter.setOnItemClickListener(this);
+        //列表
+        bRecycleView.getRecycleView().setAdapter(adapter);
+        //下拉刷新
+//        bRecycleView.getRefreshLayout().setEnableRefresh(false);
+        bRecycleView.getRefreshLayout().setOnRefreshListener(v -> {
 
-    @OnClick({
-            R.id.bt_selectlist,
-            R.id.bt_recyclerView1,
-            R.id.bt_retrofit,
-            R.id.bt_pop,
-            R.id.my_view,
-            R.id.bt_anim
-    })
-    void btClick(View v) {
-        switch (v.getId()) {
-            case R.id.bt_selectlist:
-                ToastUtils.showToast(this, "Main_btSelect---->hahahaha");
-                startActivity(new Intent(mContext, TextSelectActivity.class));
-                break;
-            case R.id.bt_recyclerView1:
-                ToastUtils.showToast(this, "RecyclerView1-->hahahahah");
-                startActivity(new Intent(mContext, CollapsingToolbarLayoutActivity.class));
-                break;
-            case R.id.bt_retrofit:
-                ToastUtils.showToast(mContext, "Retrofit--->hahahaha");
-                startActivity(new Intent(mContext, MovieActivity.class));
-                break;
-            case R.id.bt_pop:
-                final PopWindow.Builder builder =
-                        new PopWindow.Builder(this)
-                                .setContentView(R.layout.pop)
-                                .setBackgroundDimEnable(true)
-                                .setFocusAndOutsideEnable(false)
-                                .showAsDropDown(bt_pop);
-                builder
-                        .getCurView()
-                        .findViewById(R.id.pop_bt)
-                        .setOnClickListener(
-                                new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View view) {
-                                        Toast.makeText(mContext, "sucess", Toast.LENGTH_LONG).show();
-                                        builder.dismiss();
-                                    }
-                                });
-                break;
-            case R.id.my_view:
-                break;
-            case R.id.bt_anim:
-                startActivity(new Intent(mContext, AnimActivity.class));
-                break;
-        }
+        });
     }
 
     @Override
@@ -126,5 +86,47 @@ public class MainActivity extends DaggerBaseActivity<MoviePresenter> implements 
 
     @Override
     public void getDataFail() {
+    }
+
+    @Override
+    public void onItemClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
+        ToastUtils.showToast(this, items[i]);
+        switch (i) {
+            case 0:
+                startActivity(new Intent(mContext, TextSelectActivity.class));
+                break;
+            case 1:
+                startActivity(new Intent(mContext, CollapsingToolbarLayoutActivity.class));
+                break;
+            case 2:
+                startActivity(new Intent(mContext, MovieActivity.class));
+                break;
+            case 3:
+                showPop(view);
+                break;
+            case 4:
+                startActivity(new Intent(mContext, AnimActivity.class));
+                break;
+            case 5:
+                break;
+        }
+    }
+
+    private void showPop(View view) {
+        final PopWindow.Builder builder =
+                new PopWindow.Builder(this)
+                        .setContentView(R.layout.pop)
+                        .setBackgroundDimEnable(true)
+                        .setFocusAndOutsideEnable(false)
+                        .showAsDropDown(view);
+        builder
+                .getCurView()
+                .findViewById(R.id.pop_bt)
+                .setOnClickListener(
+                        v -> {
+                            Toast.makeText(mContext, "sucess", Toast.LENGTH_LONG).show();
+                            builder.dismiss();
+
+                        });
     }
 }
