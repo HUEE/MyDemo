@@ -86,5 +86,5 @@ dependencies {
     //RecycleView Adapter
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
     compile files('libs/bcprov-jdk15-143.jar')
-    compile project(':component')
+    compile project(':components')
 }

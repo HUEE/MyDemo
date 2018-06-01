@@ -1,1 +1,1 @@
-include ':app', ':ioc-annotations', ':component'
+include ':app', ':ioc-annotations', ':components'
