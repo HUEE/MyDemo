@@ -28,6 +28,7 @@ import java.util.Arrays;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import rx.subjects.BehaviorSubject;
 
 public class MainActivity extends DaggerBaseActivity<MoviePresenter> implements IView, BaseQuickAdapter.OnItemClickListener {
     @BindView(R.id.main_rv)
@@ -47,9 +48,12 @@ public class MainActivity extends DaggerBaseActivity<MoviePresenter> implements 
 
     BaseQuickAdapter adapter;
 
+    BehaviorSubject<String> subject = BehaviorSubject.create();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        subject.onNext("2");
     }
 
     @Override
@@ -59,11 +63,13 @@ public class MainActivity extends DaggerBaseActivity<MoviePresenter> implements 
 
     @Override
     protected int setLayout() {
+        subject.onNext("1");
         return R.layout.activity_main;
     }
 
     @Override
     public void init() {
+        subject.onNext("3");
         new UnsubscribeTest();
         presenter.getVisitor();
         items = getResources().getStringArray(R.array.main_items);
@@ -91,6 +97,9 @@ public class MainActivity extends DaggerBaseActivity<MoviePresenter> implements 
         ToastUtils.showToast(this, items[i]);
         switch (i) {
             case 0:
+                subject.subscribe((s)->{
+                    Toast.makeText(MainActivity.this,s,Toast.LENGTH_SHORT).show();
+                });
                 startActivity(new Intent(mContext, TextSelectActivity.class));
                 break;
             case 1:

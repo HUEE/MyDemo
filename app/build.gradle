@@ -44,6 +44,11 @@ android {
         }
     }
 
+    myPlug {
+        name "hwj"
+        age 34
+    }
+
     dexOptions {
         jumboMode = true
         javaMaxHeapSize "4g"
